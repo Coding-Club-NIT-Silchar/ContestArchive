@@ -1,3 +1,3 @@
 # contest-archive
 
-This repository consists of links, editorials and other materials related to contests held at NITS.
+This repository consists of link, editorial and other material related to contests held at NITS.
