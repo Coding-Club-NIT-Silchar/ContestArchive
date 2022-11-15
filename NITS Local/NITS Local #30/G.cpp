@@ -15,13 +15,13 @@ struct BIT {
 
     void update(int x, T val) {
           for(; x <= n; x += x&-x)
-            bit[x] += val;
+            bit[x] = max(bit[x], val);
     }
 
     T _query(int x) {
             T sum = 0;
              for(; x > 0; x -= x&-x)
-                   sum += bit[x];
+                   sum = max(sum, bit[x]);
             return sum;
     }
 
