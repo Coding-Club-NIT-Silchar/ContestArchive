@@ -3,14 +3,13 @@ using namespace std;
 
 #define int long long
 
-struct data {
-    int id;
-    int a[3];
-    bool operator < (const data &other) {
+struct d {
+    int a, b, c, id;
+    bool operator < (const d &other) {
         int t = 0;
-        for(int i = 0; i < 3; ++i) {
-            t += a[i] < other.a[i];
-        }
+        if(a < other.a) ++ t;
+        if(b < other.b) ++ t;
+        if(c < other.c) ++ t;
         if(t > 1) return 1;
         return 0;
     }
@@ -23,19 +22,17 @@ signed main () {
 
     int n;
     cin >> n;
-    vector<data> v(n);
+    vector<d> v(n);
     for(int i = 0; i < n; ++i) {
-        for(int j = 0; j < 3; ++j) {
-            cin >> v[i].a[j];
-        }
+        cin >> v[i].a >> v[i].b >> v[i].c;
         v[i].id = i + 1;
     }
     sort(v.begin(), v.end());
     for(int i = 1; i < n; ++i) {
         int t = 0;
-        for(int j = 0; j < 3; ++j) {
-            t += v[0].a[j] < v[i].a[j];
-        }
+        t += v[0].a < v[i].a;
+        t += v[0].b < v[i].b;
+        t += v[0].c < v[i].c;
         if(t < 2) {
             return cout << -1, 0;
         }
