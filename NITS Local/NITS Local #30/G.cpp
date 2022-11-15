@@ -62,7 +62,7 @@ signed main () {
     cout << bit.query(1, c) << '\n';
     int ans = 0;
     for(auto [x, y] : m) {
-        ans = (ans + x * y % mod) % mod;
+        ans = (ans + (x % mod) * (y % mod) % mod) % mod;
     }
 
     cout << ans;
